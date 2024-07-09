@@ -1,5 +1,6 @@
 :root {
-  --checkbox-checked-color: rgb(255, 21, 138);
+  /* --checkbox-checked-color: rgb(255, 21, 138); */
+  --checkbox-checked-color: rgb(87, 155, 252);
 }
 
 @-webkit-keyframes draw-checkmark {
@@ -37,9 +38,12 @@ html,
 body {
   width: 100%;
   height: 100%;
+  font-size: 0.875rem;
+  color: #333;
 }
 
 .main {
+  display: flex;
   margin: 20px;
 }
 
@@ -48,7 +52,7 @@ body {
   position: relative;
   width: 20px;
   height: 20px;
-  padding: 5px;
+  padding: 2.5px;
   background-color: #fff;
   border: 1px solid #c3c6d4;
   border-radius: 4px;
@@ -59,15 +63,17 @@ body {
 /* initial state */
 .option-button {
   display: flex;
-  justify-content: unset;
-  border-radius: 8px;
+  flex-direction: column;
+  border-radius: 4px;
   margin: 8px;
-  padding: 8px 8px 16px 8px;
-  height: calc(100% - 16px);
-  width: 140px;
+  padding: 8px 8px 14px 8px;
+  height: calc(100% - 14px);
+  width: 100px;
   border: 1px solid #c3c6d4;
   transition: all 0.15s ease-in-out;
+  cursor: pointer;
   transition: border-color 0.15s ease-in-out;
+  /* background-color: rgba(87, 156, 252, 0.123); */
 }
 
 .checkbox svg {
@@ -99,9 +105,24 @@ body {
 
 .checked-container {
   border-color: var(--checkbox-checked-color);
+  /* background-color: rgba(87, 156, 252, 0.123); */
 }
 
 .option-button:hover .checkbox,
 .option-button:hover {
   border-color: var(--checkbox-checked-color);
+}
+
+.option-button:active {
+  scale: 0.98;
+}
+
+.details {
+  align-self: center;
+}
+
+.title {
+  font-weight: normal;
+  color: #707070;
+  margin-top: 3px;
 }
