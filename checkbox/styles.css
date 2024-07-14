@@ -1,0 +1,84 @@
+:root {
+  --checked-color: rgb(87, 155, 252);
+  --checkbox-border-color: hsl(229, 17%, 80%);
+  --checkbox-highlight-color: hsl(0, 0%, 47%);
+}
+* {
+  padding: 0;
+  margin: 0;
+  font-family: sans-serif;
+  box-sizing: border-box;
+  font-size: 1rem;
+}
+
+@-webkit-keyframes draw-checkmark {
+  from {
+    stroke-dashoffset: 150;
+  }
+
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@-webkit-keyframes undraw-checkmark {
+  from {
+    stroke-dashoffset: 0;
+  }
+
+  to {
+    stroke-dashoffset: 150;
+  }
+}
+
+.main {
+  margin: 2rem;
+}
+
+/* [id$='checkbox-1'] {
+  display: none;
+} */
+.native-checkbox {
+  display: none;
+}
+
+.custom-checkbox {
+  display: inline-flex;
+  position: relative;
+  border: 1.5px solid var(--checkbox-border-color);
+  border-radius: 4px;
+  width: 20px;
+  height: 20px;
+  transition: all 0.35s;
+}
+
+.custom-checkbox:hover {
+  border-color: var(--checkbox-highlight-color);
+}
+.custom-checkbox svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.custom-checkbox path {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 1.5;
+  stroke-dasharray: 150;
+  stroke-dashoffset: 150;
+  transition: stroke-dashoffset 1s ease;
+}
+
+.native-checkbox:checked + .custom-checkbox {
+  background-color: var(--checked-color);
+  border-color: var(--checked-color);
+}
+
+.native-checkbox:checked + .custom-checkbox path {
+  -webkit-animation: draw-checkmark 1.25s forwards 0.17s;
+  animation: draw-checkmark 1.25s forwards 0.17s;
+}
+.native-checkbox:not(:checked) + .custom-checkbox path {
+  -webkit-animation: undraw-checkmark 0.85s forwards;
+  animation: undraw-checkmark 0.85s forwards;
+}
