@@ -1,0 +1,92 @@
+:root {
+  --button-bg-clr: hsl(57, 70%, 64%);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: sans-serif;
+  box-sizing: border-box;
+  font-size: 1rem;
+  color: #222;
+}
+
+body {
+  margin: 5rem;
+}
+
+button {
+  border: none;
+}
+
+.button {
+  display: inline-block;
+  position: relative;
+  isolation: isolate;
+  font: inherit;
+  padding: 0.75em 3em;
+  background-color: var(--button-bg-clr);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.5s, color 0.5s;
+  overflow: hidden;
+}
+
+.button:hover,
+.button:focus-visible {
+  background-color: var(--button-bg-clr);
+  color: aliceblue;
+}
+
+.button > span {
+  position: absolute;
+  z-index: -1;
+  width: 33.333%;
+  height: 100%;
+  background-color: orangered;
+  background-color: transparent;
+  opacity: 0.5;
+}
+
+.button > :first-child {
+  left: 0;
+  top: 0;
+}
+
+.button > :last-child {
+  right: 0;
+  top: 0;
+}
+
+.button::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  background-color: #119283;
+  opacity: 0;
+  width: 10%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  inset: 0;
+  margin: auto;
+  transition: transform 1s, opacity 0.5s;
+}
+
+.button:hover::before {
+  transform: scale(20);
+  opacity: 1;
+  transition: transform 1s, opacity 0.5s;
+}
+
+button:has(:first-child:hover)::before {
+  margin-left: 0;
+}
+
+button:has(:last-child:hover)::before {
+  margin-right: 0;
+}
+
+button:has(:first-child:hover)::before,
+button:has(:last-child:hover)::before {
+  transition: transform 0.5s, opacity 0.25s;
+}
