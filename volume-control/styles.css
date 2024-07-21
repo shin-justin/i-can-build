@@ -1,0 +1,78 @@
+:root {
+  --panel-bg-color: #111;
+  --panel-border: 0.1rem solid #333;
+  --panel-hover-bg-color: #222;
+  --meter-bg-color: #333;
+  --meter-hover-bg-color: #444;
+  --level-bg-color: #c1b679;
+  --thumb-bg-color: #c1b679;
+}
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  padding: 2rem;
+  font-family: 'Roboto', 'Lato', sans-serif;
+  box-sizing: border-box;
+}
+
+.volume-panel {
+  position: absolute;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 2.8rem;
+  height: 12rem;
+  margin: 20rem;
+  background-color: var(--panel-bg-color);
+  border-radius: 2px;
+  border: var(--panel-border);
+  cursor: pointer;
+  z-index: 1;
+  transition: background-color 0.3s;
+}
+
+.volume-panel:hover {
+  background-color: var(--panel-hover-bg-color);
+}
+
+.volume__meter {
+  position: absolute;
+  width: 0.2rem;
+  height: 10rem;
+  background-color: var(--meter-bg-color);
+  transform: rotate(180deg);
+}
+
+.volume-panel:hover .volume__meter {
+  background-color: var(--meter-hover-bg-color);
+}
+
+.volume__level {
+  width: 100%;
+  height: 100%;
+  -webkit-transform-origin-y: 0;
+  transform-origin: 0 0;
+  background-color: var(--level-bg-color);
+}
+
+.thumb {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  width: 0.8rem;
+  height: 0.8rem;
+  background-color: var(--thumb-bg-color);
+  border-radius: 100%;
+}
