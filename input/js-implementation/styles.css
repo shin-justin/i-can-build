@@ -1,0 +1,45 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  padding: 3rem;
+}
+
+.input-container {
+  position: relative;
+  transition: all 0.3s;
+}
+
+.input-box {
+  outline: none;
+  border: 2px solid #777;
+  border-radius: 4px;
+  height: 2rem;
+  padding-left: 0.5rem;
+  transition: border-color 0.3s;
+}
+
+.input-box:focus-visible {
+  border-color: teal;
+}
+
+.input-label {
+  position: absolute;
+  left: 0.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: rgba(119, 119, 119, 0.7);
+  transition: all 0.3s;
+}
+
+.input-has-value {
+  position: absolute;
+  color: inherit;
+  left: 0;
+  top: -1rem;
+  transform: translateY(-50%);
+  transition: top 0.3s;
+}
