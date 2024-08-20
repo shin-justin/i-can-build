@@ -1,0 +1,111 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 1rem;
+  background-color: #333;
+}
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+.button {
+  display: inline-block;
+  border-radius: 1rem;
+  border: 1px solid transparent;
+  padding: 0.6em 1em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: var(--secondary-clr);
+  cursor: pointer;
+  transition: border-color 0.25s;
+  margin-right: 1rem;
+}
+
+.manage-btn {
+  background-color: #777;
+  color: white;
+  transition: background-color 0.3s, scale 0.15s;
+}
+
+.root-grid-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+  transition: grid-template-columns 0.3s ease;
+  transition: grid-template-columns 0.3s ease, -ms-grid-columns 0.3s ease;
+  width: 100%;
+  min-height: 100vh;
+  /* margin-top: 2rem; */
+}
+
+.container {
+  grid-column: 2;
+  grid-row: 1;
+  padding: 20px;
+  width: 100%;
+  max-width: 1000px;
+}
+
+.content-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
+  gap: 1.5rem 0.5rem;
+}
+
+.grid-item {
+  height: 6rem;
+  background-color: #fff;
+}
+
+/* Sidebar will occupy the second column */
+.sidebar {
+  grid-column: 1;
+  grid-row: 1;
+  background-color: #f8f9fa;
+  width: 100%;
+  /* max-width: 300px; */
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+  /* position: fixed;
+    right: 0;
+    top: 0;
+    bottom: 0; */
+}
+
+/* Contents grid is responsive based on sidebar width */
+.sidebar-visible.root-grid-container {
+  /* Change sidebar max width to see main content layout change */
+  grid-template-columns: minmax(150px, 20rem) 1fr;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 1rem;
+  background-color: #222;
+  margin: 0 auto;
+  display: flex;
+  justify-content: flex-end;
+  z-index: 100;
+}
+
+/* Responsive behavior */
+@media (max-width: 768px) {
+  .sidebar-visible.root-grid-container {
+    grid-template-columns: minmax(150px, 200px);
+    /* Adjust sidebar width for smaller screens */
+  }
+}
