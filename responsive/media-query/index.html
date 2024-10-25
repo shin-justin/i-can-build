@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 1rem;
+        }
+
+
+
+        /* When the browser is at least 600px and above */
+
+        /* @media (min-width: 600px) {
+            :root {
+                background-color: teal;
+            }
+        } */
+
+        /* Clearer syntax */
+        /* @media (width > 600px) {
+            :root {
+                background-color: teal;
+            }
+        } */
+
+        /* Apply styles when width is greater than 600px and less than 800px */
+        @media (600px < width < 800px) {
+            :root {
+                background-color: orangered;
+            }
+        }
+
+        /* Older clearer syntax */
+        @media (min-width: 600px) and (max-width: 800px) {
+            :root {
+                background-color: orangered;
+
+            }
+        }
+    </style>
+</head>
+
+<body>
+</body>
+
+</html>
