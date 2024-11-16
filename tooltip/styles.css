@@ -13,7 +13,7 @@ body {
 }
 
 :root {
-  --primary-clr: #333;
+  --primary-clr: hsl(0, 0%, 20%);
 }
 
 .tooltip {
@@ -56,7 +56,6 @@ body {
   transition: opacity 0.3s;
 }
 
-.tooltip:hover::before,
 .tooltip:hover::after,
 .tooltip:hover .arrow {
   opacity: 1;
