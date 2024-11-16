@@ -25,7 +25,7 @@ body {
 .tooltip::after {
   content: attr(data-tooltip);
   position: absolute;
-  top: 100%;
+  top: 115%;
   left: 50%;
   transform: translateX(-50%);
   background: var(--primary-clr);
@@ -38,24 +38,27 @@ body {
   transition: opacity 0.3s;
 }
 
-.tooltip:hover::after {
-  opacity: 1;
-  visibility: visible;
-}
-
 .arrow {
+  content: '';
   opacity: 0;
   visibility: hidden;
   position: absolute;
-  bottom: 0;
+  bottom: -2.5px;
   left: 50%;
   transform: translateX(-50%);
-  width: 0.5rem;
-  border-width: 0.5rem;
+  width: 0.25rem;
+  border-width: 0.25rem;
   border-style: solid;
   border-bottom-color: var(--primary-clr);
   border-top-color: transparent;
   border-left-color: transparent;
   border-right-color: transparent;
   transition: opacity 0.3s;
+}
+
+.tooltip:hover::before,
+.tooltip:hover::after,
+.tooltip:hover .arrow {
+  opacity: 1;
+  visibility: visible;
 }
