@@ -1,0 +1,36 @@
+* {
+  margin: 0;
+  list-style: none;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 1rem;
+}
+
+ul {
+  background-color: #fff;
+}
+
+.parent,
+.child {
+  display: none;
+}
+
+li:hover {
+  background-color: #1796d1;
+  cursor: pointer;
+}
+/* 
+.grandparent li:nth-child(3):hover .parent {
+  display: block;
+}
+
+.is-expandable:hover {
+  display: block;
+}
+
+.parent li:nth-child(2):hover .child {
+  display: block;
+} */
