@@ -1,31 +1,30 @@
-const grandparent = document.querySelector('.grandparent').children;
-const parent = document.querySelector('.parent');
-const child = document.querySelector('.child');
+const multiLevelApi = (() => {
+  let initListeners;
 
-function toggleFirstMenu() {
-  const style = window.getComputedStyle(parent, 'display');
-
-  if (style.display === 'none') {
-    parent.style.display = 'block';
-  } else {
-    parent.style.display = 'none';
+  function toggleMenu(domEl) {
+    const style = window.getComputedStyle(domEl, 'display');
+    if (style.display === 'none') {
+      domEl.style.display = 'block';
+    } else {
+      domEl.style.display = 'none';
+    }
   }
-}
 
-function toggleSecondMenu() {
-  const style = window.getComputedStyle(child, 'display');
+  initListeners = () => {
+    document.addEventListener('DOMContentLoaded', () => {
+      const root = document.querySelector('.root');
+      root.addEventListener('click', (event) => {
+        const submenu = event.target.querySelector('.submenu');
+        if (submenu) {
+          toggleMenu(submenu);
+        }
+      });
+    });
+  };
 
-  if (style.display === 'none') {
-    child.style.display = 'block';
-  } else {
-    child.style.display = 'none';
-  }
-}
+  return {
+    initListeners
+  };
+})();
 
-grandparent[grandparent.length - 1].addEventListener('click', (evt) => {
-  if (!evt.target.classList.contains('lvl-2')) {
-    toggleFirstMenu();
-  }
-});
-
-// parent.lastElementChild.addEventListener('click', toggleSecondMenu());
+multiLevelApi.initListeners();
