@@ -1,12 +1,16 @@
 const multiLevelApi = (() => {
   let initListeners;
+  const MILISECONDS = 250;
+  const VISIBLE_CLASS = 'is-visible';
 
   function toggleMenu(domEl) {
     const style = window.getComputedStyle(domEl, 'display');
     if (style.display === 'none') {
       domEl.style.display = 'block';
+      setTimeout(() => domEl.classList.add(VISIBLE_CLASS));
     } else {
-      domEl.style.display = 'none';
+      domEl.classList.remove(VISIBLE_CLASS);
+      setTimeout(() => (domEl.style.display = 'none'), MILISECONDS);
     }
   }
 
