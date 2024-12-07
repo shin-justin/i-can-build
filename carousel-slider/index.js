@@ -7,14 +7,15 @@ const rightButton = document.querySelector('.right');
 function rotateLeft(collection) {
   collection = Array.from(collection);
   collection = [...collection.slice(1), collection[0]];
+  const nextSlide = collection[collection.length - 1];
+
+  toggleVisibility(nextSlide);
 
   // read dom elements with updated order
   const container = document.querySelector('.container');
+
   collection.forEach((slide) => {
-    slide.classList.add('remove');
     container.appendChild(slide);
-    // slide.classList.remove('remove');
-    slide.classList.add('appear');
   });
 }
 
@@ -24,6 +25,7 @@ function rotateRight(collection) {
 
   // read dom elements
   const container = document.querySelector('.container');
+
   collection.forEach((slide) => container.appendChild(slide));
 }
 
@@ -34,3 +36,11 @@ leftButton.addEventListener('click', () => {
 rightButton.addEventListener('click', () => {
   rotateRight(slideCollection);
 });
+
+function toggleVisibility(nextSlide) {
+  nextSlide.classList.add('hide');
+  setTimeout(() => {
+    nextSlide.classList.add('reveal');
+    nextSlide.classList.remove('hide', 'reveal');
+  }, 500);
+}
