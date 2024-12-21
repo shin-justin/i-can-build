@@ -1,0 +1,27 @@
+# dependencies
+**/node_modules
+
+# misc
+**/.DS_Store
+
+# environment config
+**/.env
+
+
+# production
+**/dist
+
+# Logs
+**/logs
+**/*.log
+
+# Editor directories and files
+**/.idea
+**/!.vscode/extensions.json
+**/.vscode
+**/*.suo
+**/*.ntvs*
+**/*.njsproj
+**/*.sln
+**/*.sw?
+

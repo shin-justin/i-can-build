@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SSE Example</title>
+</head>
+
+<body>
+    <p class="msg"></p>
+    <script>
+        // First Code: Using EventSource
+        const eventSource = new EventSource('/stream');
+        eventSource.onmessage = (event) => {
+            const messageDiv = document.querySelector('.msg');
+            messageDiv.innerHTML += `<p>New message: ${event.data}</p>`;
+        };
+        // Second Code: Using fetch with a Reader
+        // (async () => {
+        //     const message = document.querySelector('.msg');
+        //     const response = await fetch('/stream', {
+        //         headers: { Accept: 'text/event-stream' }
+        //     });
+
+        //     for (const reader = response.body.getReader(); ;) {
+        //         const { value } = await reader.read();
+        //         const chunk = new TextDecoder().decode(value);
+        //         console.log(chunk);
+
+        //         message.innerHTML = chunk;
+        //     }
+        // })();
+    </script>
+</body>
+
+</html>
