@@ -30,7 +30,9 @@ const VolumeControl = (() => {
     thumb,
     volumePanel,
     volumeLevel,
-    volumeMeter;
+    volumeMeter,
+    volumeControl,
+    announcement;
 
   const init = (
     volumePanelSelector,
@@ -42,6 +44,8 @@ const VolumeControl = (() => {
     volumePanel = document.querySelector(volumePanelSelector);
     volumeLevel = document.querySelector(volumeLevelSelector);
     volumeMeter = document.querySelector(volumeMeterSelector);
+    volumeControl = document.getElementById('volume-control');
+    announcement = document.getElementById('live-announcement');
 
     const { bottom, top } = volumeMeter.getBoundingClientRect();
     volumeMeterBase = bottom;
@@ -57,6 +61,8 @@ const VolumeControl = (() => {
 
   const setAudioLevel = () => {
     const audioLevel = percent / 100;
+    updateVolume(audioLevel);
+    volumeControl.setAttribute('aria-valuenow', audioLevel);
     AudioPlayer.setVolume(audioLevel);
   };
 
@@ -114,6 +120,13 @@ const VolumeControl = (() => {
       }
     }
   };
+
+  function updateVolume(newVolume) {
+    volumeValue = newVolume;
+    // Announce the new volume value for screen readers
+    volumeControl.setAttribute('aria-valuenow', volumeValue);
+    announcement.textContent = `Volume is now ${volumeValue}%`;
+  }
 
   const onMouseUp = () => {
     draggable = false;

@@ -47,6 +47,11 @@ body {
   background-color: var(--panel-hover-bg-color);
 }
 
+.volume-panel:focus,
+.volume-panel:focus-visible {
+  border: 2px solid red;
+}
+
 .volume__meter {
   position: absolute;
   width: 0.2rem;

@@ -7,25 +7,28 @@
     <link rel="stylesheet" href="styles.css">
     <title>Volume Control</title>
 </head>
+<!-- aria-valuenow -->
 
 <body>
-    <div class="volume-panel">
-        <div class="volume__meter">
-            <div class="thumb"></div>
-            <div class="volume__level">
-            </div>
+    <div class="volume-panel" aria-labelledby="volume-control" tabindex="0">
+        <div id="volume-control" class="volume__meter" role="slider" aria-valuemin="0" aria-valuemax="100"
+            aria-valuenow="50" aria-orientation="vertical" tabindex="0">
+            <div class="thumb" aria-hidden="true"></div>
+            <div class="volume__level" aria-hidden="true"></div>
         </div>
+        <span id="live-announcement" aria-live="polite" style="visibility: hidden;"></span>
     </div>
     <div>
-        <ul id="trackList">
+        <ul id="trackList" aria-label="Track List">
             <li>
                 <h3>Track One</h3>
-                <audio src="/volume-control/music/3a8f494e-4c01-49f7-9b10-d70421d5d1d4.mp3">
-                </audio>
-                <button id="1">Play</button>
+                <audio id="audio1" src="/volume-control/music/3a8f494e-4c01-49f7-9b10-d70421d5d1d4.mp3"
+                    aria-label="Audio for Track One" tabindex="-1"></audio>
+                <button id="playButton1" aria-controls="audio1" aria-label="Play Track One">Play</button>
             </li>
         </ul>
     </div>
+
     <script src="./index.js"></script>
 </body>
 
